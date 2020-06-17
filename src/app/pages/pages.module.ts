@@ -8,6 +8,8 @@ import { RealtimeModule } from './realtime/realtime.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
+import { LugarModule } from './lugares/lugar.module';
+
 @NgModule({
   imports: [
     PagesRoutingModule,
@@ -15,10 +17,11 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
     NbMenuModule,
     DashboardModule,
     RealtimeModule,
+    LugarModule,
     MiscellaneousModule,
   ],
   declarations: [
-    PagesComponent,
+    PagesComponent
   ],
 })
 export class PagesModule {

@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RealtimeComponent } from './realtime/realtime.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { LugaresComponent } from './lugares/lugares.component';
 
 const routes: Routes = [{
   path: '',
@@ -13,6 +14,10 @@ const routes: Routes = [{
     {
       path: 'mapa',
       component: RealtimeComponent,
+    },
+    {
+      path: 'lugares',
+      component: LugaresComponent,
     },
     {
       path: 'iot-dashboard',

@@ -2,10 +2,40 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Mapa',
-    icon: 'map',
+    title: 'Monitoreo',
+    icon: 'monitor-outline',
     link: '/pages/mapa',
+  },
+  {
+    title: 'Lugares',
+    icon: 'navigation-2-outline',
+    link: '/pages/lugares',
     home: true,
+  },
+  {
+    title: 'Visitas',
+    icon: 'award-outline',
+    link: '/pages/lugares',
+  },
+  {
+    title: 'Mapas',
+    icon: 'map-outline',
+    link: '/pages/lugares',
+  },
+  {
+    title: 'Gestion de Usuarios',
+    icon: 'people-outline',
+    link: '/pages/lugares',
+  },
+  {
+    title: 'Reportes',
+    icon: 'archive-outline',
+    link: '/pages/lugares',
+  },
+  {
+    title: 'Configuracion',
+    icon: 'settings-2-outline',
+    link: '/pages/lugares',
   },
   {
     title: 'IoT Dashboard',
