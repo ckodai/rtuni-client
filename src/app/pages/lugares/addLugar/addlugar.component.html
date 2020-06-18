@@ -1,0 +1,34 @@
+<nb-card>
+  <nb-card-header>Agregar lugar</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-3">
+        <form>
+          <div class="form-group">
+            <label for="inputNombreLugar" class="label">Nombre</label>
+            <input type="text" nbInput fullWidth id="inputNombreLugar" (change)="handleNombre($event)" placeholder="Nombre del Lugar">
+          </div>
+          <div class="form-group">
+            <label for="inputObservacionLugar" class="label">Observacion</label>
+            <input type="text" nbInput fullWidth id="inputObservacionLugar" (change)="handleObservacion($event)" placeholder="Observacion?">
+          </div>
+          <div class="form-group">
+            <label for="fileImg">Elige imagen</label>
+            <input type="file" nbInput fullWidth id="fileImg" (change)="handleImgInput($event.target.files)">
+          </div>
+          <div class="form-group">
+            <label for="inputCoordenadas" class="label">Coordenadas</label>
+            <input type="text" disabled nbInput fullWidth id="inputCoordenadas" value="{{LngLat}}" placeholder="Selecciona una ubicacion">
+          </div>
+          <div class="form-group">
+            <nb-checkbox (checkedChange)="handleHabilitado($event)">Habilitado</nb-checkbox>
+          </div>
+        </form>
+      </div>
+      <div id="mapLugarContainer" class="col-md-9 mapLocationSelectionContainer"></div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton (click)="close()">Agregar</button>
+  </nb-card-footer>
+</nb-card>

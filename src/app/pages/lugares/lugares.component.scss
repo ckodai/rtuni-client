@@ -1,11 +1,8 @@
-.flex-centered {
-  margin: auto;
-}
-
-nb-card-body {
-  display: flex;
-}
-
-ng2-smart-table {
+table {
   width: 100%;
+}
+
+div[class^=col-] {
+  padding: 0.5rem;
+  box-sizing: border-box;
 }

@@ -13,21 +13,39 @@ export class MapService {
   lat = 12.130084;
   lng = -86.268567;
   zoom = 17.19;
-  url = 'https://wanderdrone.appspot.com/';
+
+  currentMouseLocation: string;
+  markersTmp: mapboxgl.Marker[] = [];
 
   constructor() { }
 
-  buildMap() {
+  buildMap(container: string, callBackReturnLngLat?: (n: mapboxgl.LngLat) => any) {
 
     this.mapbox = (mapboxgl as typeof mapboxgl);
     this.mapbox.accessToken = environment.mapBoxToken;
 
     this.map = new mapboxgl.Map({
-      container: 'map',
+      container,
       style: this.style,
       zoom: this.zoom,
       center: [this.lng, this.lat]
     });
+
+    this.map.on('click', (ev) => {
+      if(this.markersTmp.length > 0){
+        this.markersTmp.forEach(e => {
+          e.remove();
+        });
+        this.markersTmp = [];
+      }
+
+      const marker = new mapboxgl.Marker()
+        .setLngLat([ev.lngLat.lng, ev.lngLat.lat])
+        .addTo(this.map);
+
+      this.markersTmp.push(marker);
+      callBackReturnLngLat(ev.lngLat);
+    })
 
     // this.map.on('load', () => {
     //   console.log("Map loaded!");

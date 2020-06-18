@@ -1,22 +1,32 @@
 import { NgModule } from '@angular/core';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
-import { LugaresComponent, RenderLugarImageComponent } from './lugares.component';
+import { MatInputModule } from '@angular/material/input';
+import { LugaresComponent } from './lugares.component';
+import { MatTableModule } from '@angular/material/table';
+import { AddLugarDialogComponent } from './addLugar/addlugar.component';
 
 import {
   NbCardModule,
   NbButtonModule,
-  NbIconModule
+  NbIconModule,
+  NbDialogModule,
+  NbInputModule,
+  NbCheckboxModule
 } from '@nebular/theme';
 
 @NgModule({
   imports: [
+    NbIconModule,
     NbCardModule,
     NbButtonModule,
-    Ng2SmartTableModule
+    MatTableModule,
+    NbDialogModule.forChild(),
+    NbInputModule,
+    NbCheckboxModule,
+    MatInputModule,
   ],
   declarations: [
     LugaresComponent,
-    RenderLugarImageComponent
+    AddLugarDialogComponent
   ]
 })
 export class LugarModule {}

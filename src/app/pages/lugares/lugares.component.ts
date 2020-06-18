@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ViewCell } from 'ng2-smart-table';
-
+import { NbDialogService } from '@nebular/theme';
+import { AddLugarDialogComponent } from './addLugar/addlugar.component';
 // interface TreeNode<T> {
 //   data: T;
 //   children?: TreeNode<T>[];
@@ -21,108 +21,22 @@ import { ViewCell } from 'ng2-smart-table';
 })
 export class LugaresComponent {
 
-  settings = {
-    mode: 'inline',
-    actions: null,
-    hideSubHeader: true,
-    columns: {
-      id: {
-        title: 'ID',
-        editable: false,
-        addable: false,
-      },
-      nombre: {
-        title: 'Nombre',
-        editable: false,
-        addable: false,
-      },
-      observacion: {
-        title: 'Observacion',
-        editable: false,
-        addable: false,
-      },
-      estado: {
-        title: 'Estado',
-        editable: false,
-        addable: false,
-      },
-      ubicacion: {
-        title: 'Ubicacion',
-        editable: false,
-        addable: false
-      },
-      imagen: {
-        title: 'Imagen',
-        editable: false,
-        addable: false,
-        renderComponent: RenderLugarImageComponent
-      },
-    }
-  };
+  displayedColumns: string[] = ['IdLugar', 'Nombre', 'Observacion', 'Estado', 'Imagen'];
 
-  data = [
-    {
-      id: 1,
-      nombre: "FEC",
-      observacion: "Sin observacion",
-      estado: "Disponible",
-      ubicacion: "75.16576, -16.8998",
-      imagen: "Sin definir"
-    },
-    {
-      id: 2,
-      nombre: "Postgrado",
-      observacion: "Sin observacion",
-      estado: "Disponible",
-      ubicacion: "75.16576, -16.8998",
-      imagen: "Sin definir"
-    },
-    {
-      id: 3,
-      nombre: "NIC.NI",
-      observacion: "Sin observacion",
-      estado: "Disponible",
-      ubicacion: "75.16576, -16.8998",
-      imagen: "Sin definir"
-    },
-    {
-      id: 4,
-      nombre: "Postgrado",
-      observacion: "Sin observacion",
-      estado: "Disponible",
-      ubicacion: "75.16576, -16.8998",
-      imagen: "Sin definir"
-    },
-    {
-      id: 5,
-      nombre: "NIC.NI",
-      observacion: "Sin observacion",
-      estado: "Disponible",
-      ubicacion: "75.16576, -16.8998",
-      imagen: "Sin definir"
-    },
-  ];
+  lugaresSource = [
+    { IdLugar: 1,  Nombre: 'FEC', Observacion: 'Undefined', Estado: '1', Imagen: 'NULL' },
+    { IdLugar: 2,  Nombre: 'FEC', Observacion: 'Undefined', Estado: '1', Imagen: 'NULL' },
+    { IdLugar: 3,  Nombre: 'FEC', Observacion: 'Undefined', Estado: '1', Imagen: 'NULL' },
+    { IdLugar: 4,  Nombre: 'FEC', Observacion: 'Undefined', Estado: '1', Imagen: 'NULL' },
+    { IdLugar: 5,  Nombre: 'FEC', Observacion: 'Undefined', Estado: '1', Imagen: 'NULL' },
+  ]
 
   constructor(
-
+    private dialogService: NbDialogService
   ) {}
 
-}
-
-@Component({
-  template: `
-    <img src="{{renderValue}}" />
-  `,
-})
-export class RenderLugarImageComponent implements ViewCell, OnInit {
-
-  renderValue: string;
-
-  @Input() value: string | number;
-  @Input() rowData: any;
-
-  ngOnInit() {
-    this.renderValue = this.value.toString();
+  openAddLugar() {
+    const openLugarDialogRef = this.dialogService.open(AddLugarDialogComponent, { closeOnBackdropClick: false });
   }
 
 }
