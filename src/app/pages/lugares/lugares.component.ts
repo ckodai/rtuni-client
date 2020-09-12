@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { AddLugarDialogComponent } from './addLugar/addlugar.component';
+import { LugarService } from '../../@core/services/lugar.service';
 // interface TreeNode<T> {
 //   data: T;
 //   children?: TreeNode<T>[];
@@ -19,24 +20,30 @@ import { AddLugarDialogComponent } from './addLugar/addlugar.component';
   styleUrls: ['./lugares.component.scss'],
   templateUrl: './lugares.component.html',
 })
-export class LugaresComponent {
+export class LugaresComponent implements OnInit {
 
-  displayedColumns: string[] = ['IdLugar', 'Nombre', 'Observacion', 'Estado', 'Imagen'];
+  displayedColumns: string[] = ['IdLugar', 'Nombre', 'Observacion', 'Estado'];
 
-  lugaresSource = [
-    { IdLugar: 1,  Nombre: 'FEC', Observacion: 'Undefined', Estado: '1', Imagen: 'NULL' },
-    { IdLugar: 2,  Nombre: 'FEC', Observacion: 'Undefined', Estado: '1', Imagen: 'NULL' },
-    { IdLugar: 3,  Nombre: 'FEC', Observacion: 'Undefined', Estado: '1', Imagen: 'NULL' },
-    { IdLugar: 4,  Nombre: 'FEC', Observacion: 'Undefined', Estado: '1', Imagen: 'NULL' },
-    { IdLugar: 5,  Nombre: 'FEC', Observacion: 'Undefined', Estado: '1', Imagen: 'NULL' },
-  ]
+  lugaresSource: [];
 
   constructor(
-    private dialogService: NbDialogService
+    private dialogService: NbDialogService,
+    private lugarService: LugarService
   ) {}
+
+  ngOnInit(): void {
+    this.fetchLugares();
+  }
+
+  fetchLugares() {
+    this.lugarService.getLugares().subscribe((lugares: any) => {
+      this.lugaresSource = lugares;
+    })
+  }
 
   openAddLugar() {
     const openLugarDialogRef = this.dialogService.open(AddLugarDialogComponent, { closeOnBackdropClick: false });
+    openLugarDialogRef.onClose.subscribe(() => this.fetchLugares());
   }
 
 }

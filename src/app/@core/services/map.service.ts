@@ -17,9 +17,11 @@ export class MapService {
   currentMouseLocation: string;
   markersTmp: mapboxgl.Marker[] = [];
 
+  mockMarkes: mapboxgl.Marker[] = [];
+
   constructor() { }
 
-  buildMap(container: string, callBackReturnLngLat?: (n: mapboxgl.LngLat) => any) {
+  buildMap(container: string, callBackReturnLngLat?: (n: mapboxgl.LngLat) => any, fakeMarkers?: boolean) {
 
     this.mapbox = (mapboxgl as typeof mapboxgl);
     this.mapbox.accessToken = environment.mapBoxToken;
@@ -46,6 +48,27 @@ export class MapService {
       this.markersTmp.push(marker);
       callBackReturnLngLat(ev.lngLat);
     })
+
+    if(fakeMarkers){
+      const m1 = new mapboxgl.Marker().setLngLat([-86.26991195632621,12.129262960691094])
+        .addTo(this.map);
+      const m2 = new mapboxgl.Marker().setLngLat([-86.2699010159545,12.129657381093395])
+        .addTo(this.map);
+      const m3 = new mapboxgl.Marker().setLngLat([-86.27025110832888,12.12995419878095])
+        .addTo(this.map);
+
+      // this.mockMarkes.push(m1);
+      // this.mockMarkes.push(m2);
+      // this.mockMarkes.push(m3);
+
+      // const m_Leyda = new mapboxgl.Marker()
+      //   .setLngLat([-86.26954207427104, 12.12887066348901])
+      //   .addTo(this.map);
+
+      // const m_m2 = new mapboxgl.Marker()
+      //   .setLngLat([-86.27014709923114, 12.12925933041403])
+      //   .addTo(this.map);
+    }
 
     // this.map.on('load', () => {
     //   console.log("Map loaded!");

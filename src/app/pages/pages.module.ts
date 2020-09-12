@@ -9,6 +9,8 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
 import { LugarModule } from './lugares/lugar.module';
+import { VisitasModule } from './visitas/visitas.module';
+import { UsuariosModule } from './usuarios/usuario.module';
 
 @NgModule({
   imports: [
@@ -18,6 +20,8 @@ import { LugarModule } from './lugares/lugar.module';
     DashboardModule,
     RealtimeModule,
     LugarModule,
+    VisitasModule,
+    UsuariosModule,
     MiscellaneousModule,
   ],
   declarations: [

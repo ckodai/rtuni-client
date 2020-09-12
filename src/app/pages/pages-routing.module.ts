@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RealtimeComponent } from './realtime/realtime.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { LugaresComponent } from './lugares/lugares.component';
+import { VisitasComponent } from './visitas/visitas.component';
+import { UsuarioComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [{
   path: '',
@@ -18,6 +20,14 @@ const routes: Routes = [{
     {
       path: 'lugares',
       component: LugaresComponent,
+    },
+    {
+      path: 'visitas',
+      component: VisitasComponent,
+    },
+    {
+      path: 'usuarios',
+      component: UsuarioComponent,
     },
     {
       path: 'iot-dashboard',

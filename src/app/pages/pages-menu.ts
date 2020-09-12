@@ -15,17 +15,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Visitas',
     icon: 'award-outline',
-    link: '/pages/lugares',
-  },
-  {
-    title: 'Mapas',
-    icon: 'map-outline',
-    link: '/pages/lugares',
+    link: '/pages/visitas',
   },
   {
     title: 'Gestion de Usuarios',
     icon: 'people-outline',
-    link: '/pages/lugares',
+    link: '/pages/usuarios',
   },
   {
     title: 'Reportes',

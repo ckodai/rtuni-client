@@ -1,0 +1,35 @@
+<nb-card>
+  <nb-card-header>Agregar visita</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-7">
+        <form>
+          <div class="form-group">
+            <label for="inputNombreUsuario" class="label">Nombre</label>
+            <input type="text" nbInput fullWidth="true" id="inputNombreUsuario" (change)="handleNombre($event)" placeholder="Nombre del usuario">
+          </div>
+          <div class="form-group">
+            <label for="inputEdad" class="label">Edad</label>
+            <input type="number" nbInput fullWidth id="inputEdad" (change)="handleEdad($event)" placeholder="Edadd?">
+          </div>
+          <div class="form-group">
+            <label for="inputOrigen" class="label">Origen</label>
+            <input type="text" nbInput fullWidth id="inputOrigen" (change)="handleOrigen($event)" placeholder="Origen">
+          </div>
+          <div class="form-group">
+            <label for="inputClassficicacion" class="label">Clasificacion</label>
+            <input type="text" nbInput fullWidth id="inputClassficicacion" (change)="handleClasificacion($event)" placeholder="Clasificacion">
+          </div>
+          <div class="form-group">
+            <label for="inputObservacion" class="label">Observacion</label>
+            <input type="text" nbInput fullWidth id="inputObservacion" (change)="handleObservacion($event)" placeholder="Observacion">
+          </div>
+        </form>
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton (click)="Send()">Agregar</button>
+    <button nbButton (click)="Close()">Cancelar</button>
+  </nb-card-footer>
+</nb-card>

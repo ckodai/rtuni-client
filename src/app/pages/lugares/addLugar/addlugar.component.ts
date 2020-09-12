@@ -16,7 +16,7 @@ export class AddLugarDialogComponent implements OnInit {
   fileToUpload: File = null;
   observacion: string;
   nombre: string;
-  habilitado: boolean;
+  habilitado: boolean = false;
 
   constructor(
     protected dialogRef: NbDialogRef<AddLugarDialogComponent>,
@@ -53,6 +53,10 @@ export class AddLugarDialogComponent implements OnInit {
   }
 
   close() {
+    this.dialogRef.close();
+  }
+
+  Send() {
     const sendT = {
       observacion: this.observacion,
       nombre: this.nombre,
@@ -62,7 +66,7 @@ export class AddLugarDialogComponent implements OnInit {
 
     this.lugarService.saveFotoLugar(this.fileToUpload, sendT).subscribe((res: any) => {
       if(res){
-        console.log("Listo!");
+        this.dialogRef.close();
       }
     });
 

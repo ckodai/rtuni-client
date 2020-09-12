@@ -17,14 +17,15 @@ export class LugarService {
   }
 
   public saveLugar(formPost: any): Observable<any> {
-    return this.httpClient.post(url + "/api/lugar", formPost).pipe(map((res: any) => res));
+    return this.httpClient.post(url + "/api/lugar/postLugar", formPost).pipe(map((res: any) => res));
   }
 
   public saveFotoLugar(fileToUpload: File, obj: any): Observable<any> {
     const formData: FormData = new FormData();
     formData.append('image', fileToUpload, fileToUpload.name);
-    Object.values(obj).forEach((key: any) => formData.append(key, obj[key]));
 
-    return this.httpClient.post(url + "/api/lugar/uploadImgLugar", formData).pipe(map((res: any) => res));
+    Object.getOwnPropertyNames(obj).forEach((propertyName: any) => formData.append(propertyName, obj[propertyName]));
+
+    return this.httpClient.post(url + "/api/lugar/postLugar", formData).pipe(map((res: any) => res));
   }
 }

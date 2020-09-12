@@ -13,7 +13,7 @@ export class MapComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.mapService.buildMap('map');
+    this.mapService.buildMap('map', null, true);
   }
 
   ngOnDestroy(): void {

@@ -1,0 +1,36 @@
+<div class="row justify-content-end">
+  <div class="col-1">
+    <button nbButton status="primary" (click)="openAddVisita()">Agregar</button>
+  </div>
+  <div class="col-1">
+    <!-- <button nbButton status="primary">Primary</button> -->
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-md-12">
+    <table mat-table [dataSource]="visitasSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="IdVisita">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.IdVisita}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Observacion">
+        <th mat-header-cell *matHeaderCellDef> Observacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.Observacion}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Datetime">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.Datetime}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Opciones">
+        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+        <td mat-cell *matCellDef="let element">
+          <button nbButton status="primary" (click)="openUserVisita(element)">
+            <nb-icon icon="person-outline"></nb-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
